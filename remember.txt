@@ -1,0 +1,14 @@
+Dekh Bhai yeh h bolkul professional setup of an nbackend project or i should say production based 
+
+isme ek tool hota h "prettier" jo install karna  padta h usko mene abhi install nahi kara h par vo group me kaam karne me helpful hota h 
+
+isme hamne nodemon sikha, basically nodemon jo hota h vo server automatically start karne ke kaam me aata h 
+
+scripts": {
+    "dev": "nodemon src/index.js"
+  },   something like this 
+
+
+  fir sikha git ignore generator and role of git ignore
+
+  ek bahut acchi baat pata chali ke empty files ko git push nahi akrne deta h until and unless usme kuch content likha na jae 
