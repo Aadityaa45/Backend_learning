@@ -12,3 +12,20 @@ scripts": {
   fir sikha git ignore generator and role of git ignore
 
   ek bahut acchi baat pata chali ke empty files ko git push nahi akrne deta h until and unless usme kuch content likha na jae 
+
+
+//lets talk about database connectivity here wew are using mongodb database as an practice purpose 
+
+we have two ways to connect the backend with the database
+1. we create a seperate file suck as "db" and write ghe conncetion code in it and call that code or file in our app.js and conncet from thwere
+2. we write entire code of he conncection in the app.js itself 
+
+dtabase se jab bhi kaam karo 
+1. try catch ya promises lagao 
+2. apna databse hameha dusre continent me rehta h to usko time to lagega hi isisliye async ka wait lagao 
+
+JavaScript is single-threaded — it can do one thing at a time. If you perform time-consuming operations (like API calls, database queries, file reads), you don’t want the rest of your code to stop and wait.
+
+This is where async/await helps!
+
+It allows you to write asynchronous code that looks like synchronous code, making it easier to read and debug
