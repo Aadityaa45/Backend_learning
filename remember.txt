@@ -29,3 +29,8 @@ JavaScript is single-threaded — it can do one thing at a time. If you perform 
 This is where async/await helps!
 
 It allows you to write asynchronous code that looks like synchronous code, making it easier to read and debug
+
+
+
+****There shpuld no spacing betweeen = in the .env file 
+every time we update .env file we have to restart the server

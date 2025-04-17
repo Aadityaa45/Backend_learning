@@ -1,8 +1,26 @@
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants";
-import express from "express";
+// import mongoose from "mongoose";
+// import { DB_NAME } from "./constants";
+// import express from "express";
+// import DBCONNECT from "./db";
 
-const app = express();
+// configDotenv.({
+//     path:'./env'
+// })
+
+import dotenv from "dotenv";
+import DBCONNECT from "./db/index.js";
+dotenv.config({
+  path: "./env"
+});
+
+
+
+DBCONNECT()
+.then(() =>{
+  
+})
+
+// const app = express();
 
 // (async () => {
 //   try {
