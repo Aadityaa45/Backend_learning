@@ -34,3 +34,47 @@ It allows you to write asynchronous code that looks like synchronous code, makin
 
 ****There shpuld no spacing betweeen = in the .env file 
 every time we update .env file we have to restart the server
+
+
+✅ Standardization of HTTP Status Codes:
+They’re categorized into five classes, based on the first digit of the code:
+
+
+Code Range	Class	Meaning
+1xx	Informational	Request received, continuing process
+2xx	Success	Request was successfully received
+3xx	Redirection	Further action needs to be taken
+4xx	Client Error	Request has an error from client side
+5xx	Server Error	Server failed to fulfill a valid request
+📘 Common HTTP Status Codes:
+✅ 2xx – Success
+200 OK – Everything worked fine.
+
+201 Created – Resource successfully created (often used with POST).
+
+204 No Content – Success, but no content to send back.
+
+🔁 3xx – Redirection
+301 Moved Permanently – Resource moved permanently.
+
+302 Found – Temporarily redirected.
+
+304 Not Modified – Cached version is still valid.
+
+🚫 4xx – Client Error
+400 Bad Request – Malformed syntax in the request.
+
+401 Unauthorized – Authentication required.
+
+403 Forbidden – Server understands but refuses to authorize.
+
+404 Not Found – Resource not found.
+
+429 Too Many Requests – Rate limiting exceeded.
+
+🔥 5xx – Server Error
+500 Internal Server Error – General server failure.
+
+502 Bad Gateway – Invalid response from upstream server.
+
+503 Service Unavailable – Server temporarily overloaded or down.

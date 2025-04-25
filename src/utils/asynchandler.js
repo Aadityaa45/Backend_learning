@@ -3,7 +3,7 @@
 // const AsyncHandler = (func) => async() => {}  //this entire code block is the example of ther higher order function of js
 
 
-const AsyncHandler = (func) => async (req,res,next) => {
+const AsyncHandler = (func) => async (req,res,next) => {   //this is an higher order function higher order functions are those ffunctions that takes and return function as an argument 
     try {
         await func(req,res,next)
     } catch (error) {

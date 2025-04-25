@@ -32,5 +32,24 @@ Think of them like little notes the server gives to the browser:
 When a client (like a browser) sends a request to your server, it may include cookies in the Cookie header. cookie-parser parses this header and makes the cookie data easily accessible in your app via req.cookies. */
 
 
-app.use(express.CookieParser())
+app.use(CookieParser())
+
+
+
+//here is the implementation of routes
+
+//here we import the routes not initially where all the iport statements are applied 
+
+import router from "./routes/user.routes.js";
+
+
+//routes declaration 
+
+app.use("/api/v1/users",router)
+
+
+//how this will workk
+//http://localhost:8000//api/v1/users/register
+
+
 export default app
