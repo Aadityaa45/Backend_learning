@@ -33,7 +33,7 @@ const UserSchema = new Schema({
     },
     watchhostory:[
         {
-            type:Schema.types.ObjectId,
+            type:Schema.Types.ObjectId,
             ref:"Video"
         }
     ],
@@ -52,7 +52,7 @@ const UserSchema = new Schema({
 
 UserSchema.pre("save",async function (next){  //here pre means just before saving the information in databse activate this hook
     if(this.isModified("password")){
-        this.password = bcrypt.hash(this.password,10)  //yeh jo hash function h yeh do chije leta h ek to kya karna h or kitne round of algorithm lagane h 
+        this.password = await bcrypt.hash(this.password,10)  //yeh jo hash function h yeh do chije leta h ek to kya karna h or kitne round of algorithm lagane h 
         next()
     }
     else{
@@ -70,30 +70,51 @@ UserSchema.methods.isPasswordCorrect = async function(password){
 
 
 
-UserSchema.methods.generateRefreshToken = async function(){
-//     🔏 jwt.sign() = turns user info into a secure token you can send to clients.
-// Only your backend knows how to make or verify it using your secret
-   return jwt.sign({    //Basically, it takes your data (called "payload") and signs it with a secret key, so no one can tamper with it.
-        _id : this._id,
+// UserSchema.methods.generateRefreshToken = async function(){
+// //     🔏 jwt.sign() = turns user info into a secure token you can send to clients.
+// // Only your backend knows how to make or verify it using your secret
+//    return jwt.sign({    //Basically, it takes your data (called "payload") and signs it with a secret key, so no one can tamper with it.
+//         _id : this._id
 
-    }),
-    process.env.REFRESH_TOKEN_SECRET,
-    {
-        expiresIn:process.env.REFRESH_TOKEN_EXPIRY
-    }
-}
+//     }),
+//     process.env.REFRESH_TOKEN_SECRET,
+//     {
+//         expiresIn:process.env.REFRESH_TOKEN_EXPIRY
+//     }
+// }
+UserSchema.methods.generateRefreshToken = async function(){
+    return jwt.sign(
+        { _id: this._id },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: process.env.REFRESH_TOKEN_EXPIRY }
+    );
+};
+
+// UserSchema.methods.generateAccessToken = async function(){
+//     return jwt.sign({    //Basically, it takes your data (called "payload") and signs it with a secret key, so no one can tamper with it.
+//         _id : this._id,
+//         email:this.email,
+//         username:this.username,
+//         fullname : this.Fullname
+//     }),
+//     process.env.ACCESS_TOKEN_SECRET,
+//     {
+//         expiresIn:process.env.ACCESS_TOKEN_EXPIRY
+//     }
+// }
 UserSchema.methods.generateAccessToken = async function(){
-    return jwt.sign({    //Basically, it takes your data (called "payload") and signs it with a secret key, so no one can tamper with it.
-        _id : this._id,
-        email:this.email,
-        username:this.username,
-        fullname : this.Fullname
-    }),
-    process.env.ACCESS_TOKEN_SECRET,
-    {
-        expiresIn:process.env.ACCESS_TOKEN_EXPIRY
-    }
-}
+    return jwt.sign(
+        {
+            _id: this._id,
+            email: this.email,
+            username: this.username,
+            fullname: this.Fullname
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: process.env.ACCESS_TOKEN_EXPIRY }
+    );
+};
+
 export const User = mongoose.model("User",UserSchema);
 
 
