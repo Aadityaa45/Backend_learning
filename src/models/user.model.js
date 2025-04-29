@@ -17,7 +17,7 @@ const UserSchema = new Schema({
         lowercase:true,
         //index:true  //basically yeh index true kisi bhi field ki searching ko easy banata h database me jaha bhi aapko lage ki yeh bahut jyada search hoga vaha aap dekh sakte ho index true karke 
     },
-    Fullname:{
+    fullName:{
         type:String,
         required:true,
         trim:true,
